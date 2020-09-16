@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//ユーザー登録
+//->name()はルーティングをFormやlink_to_route()に使用するため、ルーティングに名前を付けている。
+Route::get("signup", "Auth\RegisterController@showRegistrationForm")->name("signup.get");
+Route::post("signup", "Auth\RegisterController@register")->name("signup.post");

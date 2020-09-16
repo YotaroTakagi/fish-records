@@ -14,6 +14,8 @@ class User extends Authenticatable
      *
      * @var array
      */
+     
+    //一気に保存可能なパラメータを指定、create関数使用のため。
     protected $fillable = [
         'name', 'email', 'password',
     ];

@@ -2,17 +2,14 @@
 
 @section("content")
     <div class="text-center">
-        <h1>Sign Up</h1>
+        <h1>Log In</h1>
     </div>
     
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
             
-            {!! Form::open(["route" => "signup.post"]) !!}
-                <div class="form-group">
-                    {!! Form::label("name", "Name") !!}
-                    {!! Form::text("name", old("name"), ["class" => "form-control"]) !!}
-                </div>
+            {!! Form::open(["route" => "login.post"]) !!}
+             
                 
                 <div class="form-group">
                     {!! Form::label("email", "Email") !!}
@@ -24,13 +21,12 @@
                     {!! Form::password("password", ["class" => "form-control"]) !!}
                 </div>
                 
-                <div class="form-group">
-                    {!! Form::label("password_confirmation", "Confirmation") !!}
-                    {!! Form::password("password_confirmation", ["class" => "form-control"]) !!}
-                </div>
                 
-                {!! Form::submit("Sign Up", ["class" => "btn btn-primary btn-block"]) !!}
+                
+                {!! Form::submit("Log In ", ["class" => "btn btn-primary btn-block"]) !!}
             {!! Form::close() !!}
+            
+            <p class="mt-2">New User? {!! link_to_route("signup.get", "Sign Up", [], ["class" => "btn btn-lg btn-primary"]) !!}</p>
             
         </div>
     </div>

@@ -17,7 +17,7 @@ class User extends Authenticatable
      
     //一気に保存可能なパラメータを指定、create関数使用のため。
     protected $fillable = [
-        'name', 'email', 'password',
+        'nickname',  "password", 'avatar',
     ];
 
     /**
@@ -26,6 +26,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', "remember_token",
     ];
+    
+    public function records()
+    {
+        return $this->hasMany(Record::class);
+    } 
 }

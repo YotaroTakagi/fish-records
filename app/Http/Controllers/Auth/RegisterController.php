@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -49,9 +50,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'nickname' => 'required|string|max:255',
             'password' => 'required|string|min:6|confirmed',
+            //"avatar" => ["file",'mimes:jpeg,png,jpg,bmb','max:2048'],
+           // 'avatar' => 'required|string|max:255',
+            
         ]);
     }
 
@@ -61,12 +64,42 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+  
     protected function create(array $data)
     {
+        
+        /**$user = new User();
+        $user->nickname = "nickname";
+        $user->password = bcrypt("password");
+        $user->avatar = "avatar";**/
+        
+        /**$file = $request->avatar;
+        $path = $request->avatar;
+        
+       $file = "avatar";
+        $fileName = time().'.'.$file->getClientOriginalExtension();
+        $target_path = public_path('/avatar');
+        $file->move($target_path,$fileName);
+        
+        $users->avatar = $fileName;**/
+        
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            "nickname" => $data['nickname'],
+            "password" => bcrypt($data["password"]),
+           // "avatar" => $data['avatar'],
+            
         ]);
     }
+    
+    /**public function uploadImage(Request $request)
+    {
+        $request->avatar->store("public/avatar");
+        $file = $request->avatar;
+        $path = $request->avatar->path();
+        
+        return 
+        $users->avatar = $fileName;
+    }**/
+    
+   
 }

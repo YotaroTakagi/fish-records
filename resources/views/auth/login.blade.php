@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
             
-            {!! Form::model($users, ["route" => "login.post"]) !!}
+            {!! Form::model(["route" => "login.post"]) !!}
              
                 <div class="form-group">
                     {!! Form::label("nickname", "ニックネーム") !!}

@@ -52,15 +52,6 @@
             {!! Form::submit("投稿する", ["class" => "btn btn-primary btn-block"]) !!}
         
         {!! Form::close() !!}
-        
-        
-       <!-- {!! Form::open(["route" => "fishPicture", 'enctype'=>'multipart/form-data']) !!}
-            
-            {!! Form::label("fish_picture", "写真登録") !!}
-            {!! Form::file("fish_picture", ["files" => true, "class" => "form-control-file"]) !!}
-            {!! Form::submit("アップロード", ["class" => "btn btn-primary btn-block"]) !!}
-                
-        {!! Form::close() !!}-->
                 
         
         

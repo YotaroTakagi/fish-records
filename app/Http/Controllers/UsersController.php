@@ -75,14 +75,6 @@ class UsersController extends Controller
         $record->length = $request->length;
         $record->timefix = $request->timefix;
         
-        
-        //魚の写真登録
-        $file_name = $request->file("fish_picture")->getClientOriginalName();
-        $request->file("fish_picture")->storeAs("/public/fish_picture", $file_name);
-        $record->fish_picture = $file_name;
-        
-        $record->save();
-        
         return back();
     }
     

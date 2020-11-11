@@ -75,6 +75,8 @@ class UsersController extends Controller
         $record->length = $request->length;
         $record->timefix = $request->timefix;
         
+        $record->save();
+        
         return back();
     }
     

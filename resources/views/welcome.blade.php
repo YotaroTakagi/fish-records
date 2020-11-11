@@ -22,12 +22,7 @@
                 <p>ユーザー登録済みの方はこちらからログイン</p>
                 <p>↓↓</p>
                 <li class="list-unstyled"> {!! link_to_route("login", "ログイン", [], ["class" => "btn btn-lg btn-primary"]) !!} </li>
-                
-                <li class="list-unstyled">
-                    {!! Form::open(["action" => "UsersController@delete",]) !!}
-                        {!! Form::submit("ユーザー情報を削除する",  ["class" => "btn btn-danger"]) !!}
-                    {!! Form::close() !!}
-                </li>
+
             </div>
         </div>
     @endif

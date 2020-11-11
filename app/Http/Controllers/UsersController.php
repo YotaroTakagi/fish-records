@@ -11,10 +11,6 @@ class UsersController extends Controller
 {
     public function index() 
     {
-        
-        //$users = User::first();
-        //$records = Record::first();
-        
         return view("users.index");
     }
     
@@ -31,12 +27,15 @@ class UsersController extends Controller
         $users = User::first();
         
         $users->nickname = $request->nickname;
-        $users->save();
         
-        $file_name = $request->file('avatar')->getClientOriginalName();
-        $request->file("avatar")->storeAs("/public/avatar", $file_name);
+        if ($request->file("avatar") != null) 
+        {
+            $file_name = $request->file('avatar')->getClientOriginalName();
+            $request->file("avatar")->storeAs("/public/avatar", $file_name);
         
-        $users->avatar = $file_name;
+            $users->avatar = $file_name;
+        }
+            
         $users->save();
         
         return redirect("/");
@@ -100,14 +99,15 @@ class UsersController extends Controller
     public function fishPicture(Request $request, $id)
     {
         //if文でファイルがあるか確認
-        
-        $file_name = $request->file('fish_picture')->getClientOriginalName();
-        $request->file("fish_picture")->storeAs("/public/fish_picture", $file_name);
-        
-        $records = Record::find($id);
-        $records->fish_picture = $file_name;
-        $records->save();
-        
+        if ($request->file("fish_picture") != null)
+        {
+            $file_name = $request->file('fish_picture')->getClientOriginalName();
+            $request->file("fish_picture")->storeAs("/public/fish_picture", $file_name);
+
+            $records = Record::find($id);
+            $records->fish_picture = $file_name;
+            $records->save();
+        }
         return back();
         
     }

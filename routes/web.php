@@ -29,7 +29,7 @@ Route::get("logout", "Auth\LoginController@logout")->name("logout.get");
 
 //ユーザー機能
 Route::group(["middleware" => ["auth"]], function () {
-    Route::get("index", "UsersController@index")->name("index");
+    Route::get("index/{id}", "UsersController@index")->name("index");
     Route::get("edit", "UsersController@showEditForm")->name("edit");
     Route::post("edit", "UsersController@edit")->name("edit.post");
     

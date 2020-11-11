@@ -6,7 +6,7 @@
        <h1> {{ Auth::user()->nickname }} </h1>
        
        <p class="plofile_picture">
-           <img src="storage/avatar/IMG_0058.jpeg" width="150px" height="150px" alt="プロフィール写真が選択されていません">
+           <img src="{{ asset('storage/avatar/'.Auth::user()->avatar) }}" width="150px" height="150px" alt="プロフィール写真が選択されていません">
        </p>
       
     </div>
